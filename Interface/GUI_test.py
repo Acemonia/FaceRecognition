@@ -83,7 +83,7 @@ def DetectFace(path):
     cd_sorted = sorted(c_d.items(), key=lambda d:d[1])
     # 标准为0.4
     print(cd_sorted)
-    if cd_sorted[0][1] < 0.6:
+    if cd_sorted[0][1] < 0.5:
         print("The person is: ",cd_sorted[0][0], "\n ")
     else:
         return "null"
@@ -163,19 +163,21 @@ def showPic(path):
 
     path2 = DetectPic()
     showFigure(img, path2)
+    KeyPointOfPic()
     DetectPic()
 
 def showFigure(img, path2):
     w_box = 400
     h_box = 400
-    img_open = Image.open("./candidate-faces/" + path2 + "/1.jpg")
-    w, h = img_open.size
-    img_open_resized = Resize(w, h, w_box, h_box, img_open)
-    global img2
-    img2 = ImageTk.PhotoImage(img_open_resized)
-    c.create_image(0, 0, anchor=NW, image=img)
-    c.create_image(400, 0, anchor=NW, image=img2)
+    if path2 != "null":
+        img_open = Image.open("./candidate-faces/" + path2 + "/1.jpg")
+        w, h = img_open.size
+        img_open_resized = Resize(w, h, w_box, h_box, img_open)
+        global img2
+        img2 = ImageTk.PhotoImage(img_open_resized)
+        c.create_image(400, 0, anchor=NW, image=img2)
 
+    c.create_image(0, 0, anchor=NW, image=img)
     c.update_idletasks()
 
 
