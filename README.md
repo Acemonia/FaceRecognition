@@ -28,6 +28,6 @@
 
 
 ## 界面
-![界面图片](https://github.com/Acemonia/FaceRecognition/tree/master/Interface/interface_image.jpg)
+![界面图片](https://github.com/Acemonia/FaceRecognition/raw/master/Interface/interface_image.jpg)
 
 左图为摄像头拍摄, 右图为数据库的图
